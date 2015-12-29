@@ -1,0 +1,35 @@
+
+<?php
+
+	$time = "2015-12-16 11:15:37";
+	
+	echo isCancelable($time);
+
+	function isCancelable($time) {
+		if (function_exists('date_default_timezone_set')) {
+		  date_default_timezone_set('Asia/Kolkata');
+		}
+
+		// Present DateTime
+		$pdate = new DateTime();
+		$pdate->setDate(date(Y), date(m), date(d));
+		$pdate->setTime(date(H), date(i), date(s));
+
+		$odate = new DateTime();
+		$odate->setDate(substr($time, 0, 4), substr($time, 5, 2), substr($time, 8, 2) );
+		$odate->setTime(substr($time, 11, 2), substr($time, 14, 2), substr($time, 17, 2) );
+
+		echo "order date"; echo $time ; echo " " ;
+		echo "present date"; echo date(YmdHis); echo " ";
+		$diff = $pdate->diff($odate);
+
+		echo $diff->format('%d %m %Y %H %i %s');
+		if ($diff->format('%Y%m%d') == "000" &&
+			// If order date is previous one and diff is  
+			($pdate->format('%H') < 6 && $pdate->format('a') == "am") ) {
+				return "y";
+		} else
+				return "n";
+	}
+	
+?>

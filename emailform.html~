@@ -1,0 +1,32 @@
+<html>  
+<head>  
+  
+</head>  
+  
+<body>  
+<form method="post" action="mailsending_html.php">  
+  
+<div align="center">  
+<b style="color:green">Sending Mail in PHP Using PHPMailer class With Wamp Server</b>  
+</div>  
+  
+<div align="center">  
+<b style="color:green" >From Address:<b>  
+<input name="fromemail" id="from" type="text" />  
+  
+<b style="color:green" >To Address:&nbsp;&nbsp;&nbsp;&nbsp;<b>  
+<input name="email" id="email" type="text" />  
+
+  
+Message:  
+  
+<textarea name="message" id="message" rows="8" cols="40"></textarea>  
+  
+  
+<input type="submit" value="Submit" style="color:green" />  
+   
+<div>  
+</form>  
+</body>  
+  
+</html>
